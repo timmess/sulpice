@@ -35,6 +35,16 @@ class User implements UserInterface
      */
     private $password;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=CharacterClass::class, inversedBy="User")
+     */
+    private $characterClass;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $pseudo;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -111,5 +121,29 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getCharacterClass(): ?CharacterClass
+    {
+        return $this->characterClass;
+    }
+
+    public function setCharacterClass(?CharacterClass $characterClass): self
+    {
+        $this->characterClass = $characterClass;
+
+        return $this;
+    }
+
+    public function getPseudo(): ?string
+    {
+        return $this->pseudo;
+    }
+
+    public function setPseudo(string $pseudo): self
+    {
+        $this->pseudo = $pseudo;
+
+        return $this;
     }
 }

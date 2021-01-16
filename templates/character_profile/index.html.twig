@@ -4,6 +4,31 @@
 
 {% block body %}
 
-
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-6">
+            <table class="table table-hover text-center">
+                <thead>
+                    <tr class="table-dark">
+                        <th scope="row">Pseudo</th>
+                        <td>Classe</td>
+                        <td>Points de vie</td>
+                        <td>Force</td>
+                        <td>Défense</td>
+                    </tr>
+                <thead>
+                <tbody>
+                    <tr class="table-light">
+                        <th scope="row">{{user.pseudo}}</th>
+                        <td>{{user.characterClass.name}}</td>
+                        <td>{{user.characterClass.baseLifePoints}}</td>
+                        <td>{{user.characterClass.baseAttack}}</td>
+                        <td>{{user.characterClass.baseDefense}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
